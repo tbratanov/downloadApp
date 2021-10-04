@@ -1,0 +1,16 @@
+{
+    "name":"downloadApp",
+    "title":"downloadApp",
+    "type": "window",
+    "ignoreSavedLayout": true,
+    "details":{
+        "url":"http://localhost:4448/index.html",
+        "mode": "html",
+        "top": 200,
+        "left": 200,
+        "minWidth": 350,
+        "minHeight": 400,
+        "maxWidth": 350,
+        "maxHeight": 400
+    }
+}

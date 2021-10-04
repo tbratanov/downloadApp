@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styling/style.css">
+    <title>downloadApp</title>
+</head>
+<body>
+    <div id="downloadOptions">
+        <div class="select-wrap">
+        <label for="silent">Download bar:</label>
+        <select id="silent">
+            <option value="true">On</option>
+            <option value="false">Off</option>
+        </select><br>
+        </div>
+        <div class="select-wrap">
+        <label for="autoOpenPath">Auto-Open Path:</label>
+        <select id="autoOpenPath">
+            <option value="true">On</option>
+            <option value="false">Off</option>
+        </select><br>
+        </div>
+        <div class="select-wrap">
+        <label for="autoOpenDownload">Auto-Open Download folder:</label>
+        <select id="autoOpenDownload">
+            <option value="true">On</option>
+            <option value="false">Off</option>
+        </select><br>
+        </div>
+        <div class="select-wrap">
+        <label for="downloadURL">Download URL:</label>
+        <select id="downloadURL" oninput="showDownloadURL()">
+            <option value="dataURL">Data URL</option>
+            <option value="blob">Blob</option>
+            <option value="URL">URL</option>
+        </select><br>
+        </div>
+        <div class="select-wrap">
+        <div id="URLInput" style="display:none">
+            <label for="URLInputField">Enter URL:</label>
+            <input type="text" id="URLInputField">
+        </div>
+        </div>
+        <div class="buttonDiv">
+            <button id="downloadButton">Download</button>
+        </div> 
+        <div id = "successMessage" style="display:none">
+            <h3>File downloaded!</h3>
+        </div>   
+    </div>
+ 
+</body>
+<script type="text/javascript" src="./JS/downloadApp.js"></script>
+</html>
