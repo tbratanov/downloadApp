@@ -10,10 +10,17 @@
 <body>
     <div id="downloadOptions">
         <div class="select-wrap">
+            <label for="downloadType">Download method:</label>
+            <select id="downloadType">
+                <option value="AGM">AGM</option>
+                <option value="windowsAPI">Windows API</option>
+            </select><br>
+            </div>
+        <div class="select-wrap">
         <label for="silent">Download bar:</label>
         <select id="silent">
-            <option value="true">On</option>
-            <option value="false">Off</option>
+            <option value="false">On</option>
+            <option value="true">Off</option>
         </select><br>
         </div>
         <div class="select-wrap">
@@ -37,6 +44,10 @@
             <option value="blob">Blob</option>
             <option value="URL">URL</option>
         </select><br>
+        </div>
+        <div class="select-wrap">
+            <label for="nameInput">Enter Name:</label>
+            <input type="text" id="nameInput">
         </div>
         <div class="select-wrap">
         <div id="URLInput" style="display:none">

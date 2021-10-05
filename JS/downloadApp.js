@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 function handleDOMReady() {
-    // Functions to button assignments
     const downloadButton = document.getElementById("downloadButton");
     downloadButton.addEventListener("click", downloadFunc)
 };
@@ -32,15 +31,36 @@ function showDownloadURL() {
 function getOptions() {
     
     let options;
+    let silent;
+    let autoOpenDownload;
+    let autoOpenPath;
+    const name = document.getElementById("nameInput").value;
 
-    let silent = document.getElementById("silent").value;
-    let autoOpenPath = document.getElementById("autoOpenPath").value;
-    let autoOpenDownload = document.getElementById("autoOpenDownload").value;
+    if(document.getElementById("silent").value === "true") {
+        silent = true
+    }   else if(document.getElementById("silent").value === "false") {
+        silent = false
+    };
+
+    if(document.getElementById("autoOpenPath").value === "true") {
+        autoOpenPath = true
+    }   else if(document.getElementById("autoOpenPath").value === "false") {
+        autoOpenPath = false
+    };
+
+    if(document.getElementById("autoOpenDownload").value === "true") {
+        autoOpenDownload = true
+    }   else if(document.getElementById("autoOpenDownload").value === "false") {
+        autoOpenDownload = false
+    };
+
+
 
     options = {
-        silent,
-        autoOpenDownload,
-        autoOpenPath
+        silent: silent,
+        autoOpenPath: autoOpenPath,
+        autoOpenDownload: autoOpenDownload,
+        name: name
     };
 
     return options;
@@ -67,6 +87,7 @@ function getURL() {
 
 };
 
+
 function downloadFunc() {
 
     const options = getOptions();
@@ -74,11 +95,28 @@ function downloadFunc() {
 
     const successMessage = document.getElementById("successMessage");
 
-    glue.windows.my().download(URL, options)
-    .then(() => {
-        successMessage.style.display="block";
-    })
-    .catch((error) => {
-        console.warn(error)
-    });
+    const type = document.getElementById("downloadType").value;
+
+    if(type === "AGM") {
+        options['url'] = URL;
+        glue.agm.invoke('T42.Wnd.DownloadFile', options)
+        .then(() => {
+            successMessage.style.display="block";
+        })
+        .catch((error) => {
+            console.warn(error)
+        });
+    } else if(type === "windowsAPI") {
+        glue.windows.my().download(URL, options)
+        .then(() => {
+            successMessage.style.display="block";
+        })
+        .catch((error) => {
+            console.warn(error)
+        });
+    };
+
+
+
+
 };

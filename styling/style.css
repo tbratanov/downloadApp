@@ -35,6 +35,12 @@ select{
   padding-left: 0%;
 }
 
+#nameInput {
+    height: 40px;
+    width: 100%;
+    padding-left: 0%;
+}
+
 .buttonDiv {
     border: 1px solid #777;
     border-radius: 4px;
